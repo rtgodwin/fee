@@ -53,6 +53,12 @@ feepred <- function(model, data, maxpred) {
     pred[1] <- sum(w + (1 - w) * a * ((1 / (1 + th)) ^ a) * (th / (1 + th - (1 + th) ^ (1 - a))))
     for(pp in 2:(maxpred)){
       pred[pp] <- sum((1 - w) * (gamma(a + pp) / gamma(a) / gamma(pp + 1)) * ((1 / (1 + th)) ^ a) * ((th / (1 + th)) ^ pp) * (1 / (1 - (1 + th) ^ (-a))))
+    } 
+    pred
+  } else if(class(model) == "basicPoisson") {
+     pred <- rep(0, maxpred + 1)
+    for(pp in 0:(maxpred)){
+      pred[pp] <- sum((l ^ (pp)) / ((exp(l) - 1) * factorial(pp)))
     }
     pred
   }
