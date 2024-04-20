@@ -58,7 +58,7 @@ feepred <- function(model, data, maxpred) {
   } else if(class(model) == "basicPoisson") {
      pred <- rep(0, maxpred + 1)
     for(pp in 0:(maxpred)){
-      pred[pp] <- sum((l ^ (pp)) / ((exp(l) - 1) * factorial(pp)))
+      pred[pp] <- sum((l ^ (pp)) / (exp(l) * factorial(pp)))
     }
     pred
   }
