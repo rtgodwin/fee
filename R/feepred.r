@@ -2,7 +2,7 @@ feepred <- function(model, data, maxpred) {
   
   b <- model$beta
   g <- model$gamma
-
+  
   formula <- model$formula
   cleandata <- makeXZy(formula, data)
   X <- cleandata$X
@@ -16,11 +16,11 @@ feepred <- function(model, data, maxpred) {
     a <- model$alpha
     th <- l / a
   }
-
+  
   if(missing(maxpred)) {
     maxpred = max(y)
   }
-    
+  
   if(class(model) == "truncmodel" & model$dist == "Poisson") {
     #PP
     pred <- rep(0, maxpred)
@@ -56,9 +56,9 @@ feepred <- function(model, data, maxpred) {
     } 
     pred
   } else if(class(model) == "basicPoisson") {
-     pred <- rep(0, maxpred + 1)
-    for(pp in 0:(maxpred)){
-      pred[pp] <- sum((l ^ (pp)) / (exp(l) * factorial(pp)))
+    pred <- rep(0, maxpred)
+    for(pp in 1:(maxpred)){
+      pred[pp] <- sum((l ^ (pp-1)) / (exp(l) * factorial(pp-1)))
     }
     pred
   }
