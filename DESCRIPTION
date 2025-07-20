@@ -1,0 +1,18 @@
+Type: Package
+Package: fee
+Title: Estimate the first-exposure effect (FEE) using count data models
+Version: 0.1.0
+Authors@R: 
+    person("Ryan T.", "Godwin", , "ryan.godwin@umanitoba.ca", role = c("aut", "cre"))
+Author: Ryan T. Godwin [aut, cre]
+Maintainer: Ryan T. Godwin <ryan.godwin@umanitoba.ca>
+Description: Estimates the first-exposure effect (FEE) using a
+    one-inflated positive Poisson model, or a one-inflated zero-truncated
+    negative binomial model. In addition, estimates the marginal FEEs, and
+    standard errors for the FEE and marginal FEEs.
+License: GPL (>= 3)
+Imports: 
+    graphics,
+    oneinfl
+Encoding: UTF-8
+RoxygenNote: 7.3.2
