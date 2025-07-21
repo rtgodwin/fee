@@ -22,7 +22,7 @@ A numeric vector of first-exposure effect(s).
 Computes the first-exposure effect (FEE) for a model estimated using the
 one-inflated positive Poisson distribution. The FEE represents the change in 
 expected counts associated with the first exposure to treatment, relative to 
-the counterfactual postive Poisson model.This function is used internally by
+the counterfactual positive Poisson model.This function is used internally by
 \code{\link{fee}} at given covariate values.
 }
 \seealso{
